@@ -68,8 +68,8 @@ use(async (req, res, next) => {
       let fileDir = await plugin.nvim.call('expand', `#${req.bufnr}:p:h`)
       logger.info('fileDir', fileDir)
 
-      const  mingw_home=process.env.MINGW_HOME;
-      if (mingw_home){
+      const  msystem=process.env.MSYSTEM;
+      if (msystem){
         if(! fileDir.includes(':')){
           // fileDir is unix-like:      /Z/x/y/...., 'Z' means Z:
           // the win-like fileDir should be: Z:\x\y...
